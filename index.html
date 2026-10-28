@@ -1,0 +1,871 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cantika.dev | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --pink: #e64f91;
+  --dark-pink: #bd3673;
+  --soft-pink: #fff0f6;
+  --text: #4b2945;
+  --muted: #806b7e;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text);
+  background: #fffafd;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: 90%;
+  max-width: 1120px;
+  margin: auto;
+}
+
+.pink { color: var(--pink); }
+
+.eyebrow {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 30px;
+  background: #ffe6f0;
+  border: 1px solid #ffd5e6;
+  color: var(--dark-pink);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* NAVBAR */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 15px 5%;
+  background: rgba(255,255,255,.96);
+  border-bottom: 1px solid #f9dce8;
+  backdrop-filter: blur(15px);
+}
+
+.logo {
+  color: var(--pink);
+  font-size: 21px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: 23px;
+}
+
+.nav-links a {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.nav-links a:hover { color: var(--pink); }
+
+.nav-button {
+  padding: 9px 17px;
+  background: var(--pink);
+  color: white;
+  border-radius: 30px;
+  font-size: 12px;
+}
+
+/* HOME */
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+  gap: 45px;
+  padding-top: 65px;
+  padding-bottom: 75px;
+}
+
+.hero h1 {
+  margin-top: 20px;
+  font-size: clamp(32px, 4vw, 49px);
+  line-height: 1.3;
+  letter-spacing: -1px;
+}
+
+.script {
+  font-family: 'Caveat', cursive;
+  color: var(--pink);
+  font-size: 1.15em;
+}
+
+.hero p {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 11px 22px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 600;
+  transition: .3s;
+}
+
+.btn-primary {
+  color: white;
+  background: var(--pink);
+  box-shadow: 0 8px 20px #e64f9125;
+}
+
+.btn-primary:hover {
+  background: var(--dark-pink);
+  transform: translateY(-3px);
+}
+
+.btn-outline {
+  color: var(--dark-pink);
+  background: white;
+  border: 1px solid #f2a5c6;
+}
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 24px;
+}
+
+.tech-list span {
+  padding: 7px 12px;
+  border: 1px solid #f9dce8;
+  border-radius: 30px;
+  background: white;
+  color: var(--dark-pink);
+  font-size: 10px;
+}
+
+/* FOTO PROFIL */
+.hero-image {
+  position: relative;
+  padding: 20px;
+}
+
+.blob {
+  position: absolute;
+  inset: 20px 5px;
+  border-radius: 40px;
+  background: linear-gradient(140deg,#f7b5d0,#ffe7f1);
+  transform: rotate(-7deg);
+}
+
+.profile-card {
+  position: relative;
+  padding: 11px;
+  border: 1px solid #f9dce8;
+  border-radius: 25px;
+  background: white;
+  box-shadow: 0 20px 50px #d85a9120;
+}
+
+.profile-card img {
+  display: block;
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 18px;
+}
+
+.profile-caption {
+  padding: 13px 8px 4px;
+}
+
+.profile-caption strong,
+.profile-caption small {
+  display: block;
+}
+
+.profile-caption strong { font-size: 13px; }
+
+.profile-caption small {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.note {
+  position: absolute;
+  top: 5px;
+  right: -12px;
+  padding: 12px 15px;
+  background: white;
+  color: var(--dark-pink);
+  border-radius: 14px;
+  box-shadow: 0 8px 25px #d85a9120;
+  font-family: 'Caveat', cursive;
+  font-size: 20px;
+  font-weight: 700;
+  transform: rotate(7deg);
+}
+
+/* SECTION */
+.section-heading h2,
+.about h2,
+.contact h2 {
+  margin-top: 10px;
+  font-size: clamp(27px,3vw,35px);
+  line-height: 1.3;
+}
+
+.section-heading p {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* ABOUT */
+.about {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  align-items: center;
+  gap: 35px;
+  padding-top: 55px;
+  padding-bottom: 65px;
+  border-top: 1px solid #fce0ec;
+}
+
+.about-photo {
+  padding: 10px;
+  background: white;
+  border: 1px solid #f5d6e4;
+  box-shadow: 0 12px 30px #c64c8312;
+  transform: rotate(-3deg);
+}
+
+.about-photo img {
+  display: block;
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.about-photo p {
+  padding: 10px 0;
+  text-align: center;
+  color: var(--pink);
+  font-family: 'Caveat', cursive;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.about-copy p {
+  margin: 13px 0 18px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 2;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.info-card {
+  padding: 15px;
+  border: 1px solid #f6dce7;
+  border-radius: 16px;
+  background: white;
+}
+
+.info-card span { font-size: 23px; }
+
+.info-card strong {
+  display: block;
+  margin-top: 5px;
+  font-size: 11px;
+}
+
+.info-card p {
+  font-size: 10px;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+/* SKILLS */
+.skills-section {
+  padding: 60px 0 70px;
+  background: linear-gradient(135deg,#fff0f6,#fff9fc,#ffe9f2);
+  border-radius: 30px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.skill-card {
+  padding: 21px 17px;
+  background: white;
+  border: 1px solid #f7dce8;
+  border-radius: 19px;
+  transition: .3s;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 30px #c64c8319;
+}
+
+.skill-icon {
+  font-size: 28px;
+}
+
+.skill-card h3 {
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.skill-card p {
+  min-height: 48px;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.progress {
+  height: 7px;
+  margin-top: 13px;
+  overflow: hidden;
+  background: #ffe5ef;
+  border-radius: 20px;
+}
+
+.progress span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg,#e64f91,#f18db7);
+  border-radius: 20px;
+}
+
+/* PROJECT */
+.projects {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  align-items: stretch;
+  gap: 20px;
+  margin-top: 28px;
+}
+
+.project-card {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  color: inherit;
+  background: white;
+  border: 1px solid #f4d9e6;
+  border-radius: 19px;
+  transition: .3s;
+}
+
+.project-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 18px 35px #c64c8317;
+  border-color: #ed9ec1;
+}
+
+.project-card:focus-visible {
+  outline: 3px solid var(--pink);
+  outline-offset: 4px;
+}
+
+/* SEMUA GAMBAR PROJECT SAMA UKURAN */
+.project-art {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 230px;
+  padding: 0;
+  overflow: hidden;
+  background: #ffe3ef;
+}
+
+.project-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.art-one { background: #ffe3ef; }
+.art-two { background: #eee8ff; }
+.art-three { background: #fff0f6; }
+
+.project-info {
+  padding: 18px;
+}
+
+.project-info h3 {
+  margin-top: 6px;
+  font-size: 13px;
+}
+
+.project-info p {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.9;
+}
+
+.tag {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 10px;
+  border-radius: 30px;
+  background: #ffeaf2;
+  color: var(--dark-pink);
+  font-size: 9px;
+  font-weight: 600;
+}
+
+/* CONTACT */
+.contact {
+  display: grid;
+  grid-template-columns: .6fr 1.4fr 1fr;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 45px;
+  padding: 30px;
+  background: linear-gradient(120deg,#ffe1ed,#fff1f7,#fbd9e8);
+  border: 1px solid #f8d7e5;
+  border-radius: 27px;
+}
+
+.contact-art {
+  text-align: center;
+  font-size: 65px;
+}
+
+.contact-copy p {
+  margin: 10px 0 17px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  padding-left: 18px;
+  border-left: 1px solid #efbfd3;
+}
+
+.contact-links a,
+.contact-links p {
+  color: var(--muted);
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+.contact-links a:hover { color: var(--dark-pink); }
+
+/* FOOTER */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 20px 5%;
+  border-top: 1px solid #f9dce8;
+  background: white;
+}
+
+.footer p {
+  color: var(--muted);
+  font-size: 10px;
+  text-align: center;
+}
+
+.back-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--pink);
+  color: white;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .hero { gap: 25px; }
+
+  .skills-grid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+
+  .contact {
+    grid-template-columns: .5fr 1.5fr;
+  }
+
+  .contact-links {
+    grid-column: 1 / -1;
+    padding: 15px 0 0;
+    border-left: 0;
+    border-top: 1px solid #efbfd3;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 12px 4%;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 40px;
+    padding-bottom: 45px;
+  }
+
+  .hero h1 { font-size: 34px; }
+
+  .hero-image {
+    width: 90%;
+    max-width: 350px;
+    margin: 10px auto;
+  }
+
+  .profile-card img { height: 300px; }
+
+  .about { grid-template-columns: 1fr; }
+
+  .about-photo {
+    width: 85%;
+    max-width: 350px;
+    margin: auto;
+  }
+
+  .about-photo img { height: 260px; }
+
+  .skills-section {
+    padding: 43px 0;
+    border-radius: 22px;
+  }
+
+  .projects {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .projects-grid { grid-template-columns: 1fr; }
+
+  .project-art { height: 230px; }
+
+  .contact {
+    grid-template-columns: 1fr;
+    padding: 24px 20px;
+  }
+
+  .contact-links { grid-column: auto; }
+
+  .footer {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer p {
+    order: 3;
+    width: 100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <a href="#home" class="logo">✿ naii.dev</a>
+
+  <nav class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <a href="#contact" class="nav-button">Let's Talk ↗</a>
+</header>
+
+<main>
+
+<!-- HOME -->
+<section class="hero container" id="home">
+  <div>
+    <span class="eyebrow">✿ Hello, welcome to my portfolio ♡</span>
+
+    <h1>
+      Hi, I'm <span class="pink">Cantika!</span><br>
+      Siswa RPL yang suka<br>
+      <span class="script">Ngoding &amp; Desain ♡</span>
+    </h1>
+
+    <p>
+      Aku Cantika Putri Kanaya, siswa kelas XI RPL 2 di SMKN 71 Jakarta.
+      Aku tertarik dengan web development, UI/UX design, dan teknologi
+      yang bisa membuat hidup lebih mudah.
+    </p>
+
+    <div class="buttons">
+      <a href="#projects" class="btn btn-primary">Lihat Proyek ↗</a>
+      <a href="#about" class="btn btn-outline">Tentang Saya</a>
+    </div>
+
+    <div class="tech-list">
+      <span>HTML</span>
+      <span>CSS &amp; Tailwind</span>
+      <span>Java</span>
+      <span>Nuxt 3</span>
+    </div>
+  </div>
+
+  <div class="hero-image">
+    <div class="blob"></div>
+
+    <div class="profile-card">
+      <img src="cantika.jpg" alt="Foto Cantika"
+           onerror="this.onerror=null;this.src='knyaa.jpg';">
+
+      <div class="profile-caption">
+        <strong>Cantika Putri Kanaya ♡</strong>
+        <small>Student · Software Engineering</small>
+      </div>
+    </div>
+
+    <div class="note">Keep learning,<br>keep growing ♡</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about container" id="about">
+  <div class="about-photo">
+    <img src="naii.jpg" alt="Foto Cantika"
+         onerror="this.onerror=null;this.src='knyaa.jpg';">
+    <p>Dream big, code bigger ♡</p>
+  </div>
+
+  <div class="about-copy">
+    <span class="eyebrow">Tentang Saya</span>
+    <h2>About Me <span class="pink">♡</span></h2>
+
+    <p>
+      Halo! Aku Cantika Putri Kanaya, siswa kelas XI RPL 2 di SMKN 71 Jakarta.
+      Aku sedang belajar membuat website dan aplikasi menggunakan berbagai
+      teknologi pemrograman. Aku suka belajar hal baru dan ingin terus
+      mengembangkan kemampuanku.
+    </p>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <span>👩🏻‍💻</span>
+        <strong>Nama</strong>
+        <p>Cantika Putri Kanaya</p>
+      </div>
+
+      <div class="info-card">
+        <span>🏫</span>
+        <strong>Sekolah</strong>
+        <p>SMKN 71 Jakarta</p>
+      </div>
+
+      <div class="info-card">
+        <span>🎀</span>
+        <strong>Kelas</strong>
+        <p>XI RPL 2</p>
+      </div>
+
+      <div class="info-card">
+        <span>💻</span>
+        <strong>Jurusan</strong>
+        <p>Rekayasa Perangkat Lunak</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-section" id="skills">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">Keahlian</span>
+      <h2>My Skills <span class="pink">✧</span></h2>
+      <p>Teknologi yang sedang aku pelajari dan kembangkan.</p>
+    </div>
+
+    <div class="skills-grid">
+      <article class="skill-card">
+        <div class="skill-icon">🌐</div>
+        <h3>HTML</h3>
+        <p>Membuat struktur dan konten website.</p>
+        <div class="progress"><span style="width:80%"></span></div>
+      </article>
+
+      <article class="skill-card">
+        <div class="skill-icon">🎨</div>
+        <h3>CSS &amp; Tailwind</h3>
+        <p>Mengatur desain dan tampilan website.</p>
+        <div class="progress"><span style="width:70%"></span></div>
+      </article>
+
+      <article class="skill-card">
+        <div class="skill-icon">☕</div>
+        <h3>Java</h3>
+        <p>Mempelajari OOP dan logika program.</p>
+        <div class="progress"><span style="width:60%"></span></div>
+      </article>
+
+      <article class="skill-card">
+        <div class="skill-icon">💚</div>
+        <h3>Nuxt 3</h3>
+        <p>Mengenal pembuatan website menggunakan Vue.</p>
+        <div class="progress"><span style="width:45%"></span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects container" id="projects">
+  <div class="section-heading">
+    <span class="eyebrow">Karya Saya</span>
+    <h2>My Projects <span class="pink">♡</span></h2>
+    <p>Klik salah satu project untuk membuka halaman detailnya.</p>
+  </div>
+
+  <div class="projects-grid">
+
+    <a href="projects/rumah-sakit.html" class="project-card">
+      <div class="project-art art-one">
+        <img src="iann.jpg" alt="Website Rumah Sakit"
+             onerror="this.style.display='none';this.parentElement.insertAdjacentHTML('beforeend','<span style=&quot;font-size:65px&quot;>🏥</span>');">
+      </div>
+      <div class="project-info">
+        <small class="pink">PROJECT 01</small>
+        <h3>Website Rumah Sakit</h3>
+        <span class="tag">HTML &amp; CSS</span>
+        <p>Website informasi layanan, dokter, dan pendaftaran pasien.</p>
+      </div>
+    </a>
+
+    <a href="projects/data-siswa.html" class="project-card">
+      <div class="project-art art-two">
+        <img src="kanaya.jpg" alt="Aplikasi Data Siswa"
+             onerror="this.style.display='none';this.parentElement.insertAdjacentHTML('beforeend','<span style=&quot;font-size:65px&quot;>💻</span>');">
+      </div>
+      <div class="project-info">
+        <small class="pink">PROJECT 02</small>
+        <h3>Figma</h3>
+        <span class="tag">PHP &amp; MySQL</span>
+        <p>Figma digunakan untuk mendesain antarmuka produk digital serta berkolaborasi secara langsung.</p>
+      </div>
+    </a>
+
+    <a href="projects/portfolio.html" class="project-card">
+      <div class="project-art art-three">
+        <img src="putrii.jpg" alt="Portfolio Website Cantika"
+             onerror="this.onerror=null;this.src='cantika.jpg';">
+      </div>
+      <div class="project-info">
+        <small class="pink">PROJECT 03</small>
+        <h3>Portofolio Website</h3>
+        <span class="tag">HTML &amp; CSS</span>
+        <p>Website portofolio pribadi dengan desain pink soft.</p>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact container" id="contact">
+  <div class="contact-art">💌</div>
+
+  <div class="contact-copy">
+    <span class="eyebrow">Hubungi Saya</span>
+    <h2>Let's Connect <span class="pink">♡</span></h2>
+    <p>Terima kasih sudah mengunjungi portofolioku!</p>
+    <a class="btn btn-primary" href="mailto:emailkamu@example.com">
+      Kirim Email ↗
+    </a>
+  </div>
+
+  <div class="contact-links">
+    <a href="mailto:emailkamu@example.com">✉ putriicantik3012@gmail.com</a>
+    <a href="https://instagram.com/" target="_blank">@naiiixy_</a>
+    <a href="https://github.com/" target="_blank">⌘ GitHub</a>
+    <p>📍 Jakarta, Indonesia</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <a href="#home" class="logo">✿ naiiean.dev</a>
+  <p>© 2026 Cantika Putri Kanaya · Made with <span class="pink">♡</span></p>
+  <a href="#home" class="back-top" aria-label="Kembali ke atas">↑</a>
+</footer>
+
+</body>
+</html>
